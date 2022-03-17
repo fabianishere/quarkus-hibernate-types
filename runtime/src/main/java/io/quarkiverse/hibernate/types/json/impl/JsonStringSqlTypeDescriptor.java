@@ -11,7 +11,7 @@ import org.hibernate.type.descriptor.WrapperOptions;
 import org.hibernate.type.descriptor.java.JavaTypeDescriptor;
 import org.hibernate.type.descriptor.sql.BasicBinder;
 
-public class JsonStringSqlTypeDescriptor extends JsonSqlTypeDescriptor {
+public class JsonStringSqlTypeDescriptor extends AbstractJsonSqlTypeDescriptor {
 
     public static final JsonStringSqlTypeDescriptor INSTANCE = new JsonStringSqlTypeDescriptor();
 
@@ -41,4 +41,13 @@ public class JsonStringSqlTypeDescriptor extends JsonSqlTypeDescriptor {
         return rs.getString(name);
     }
 
+    @Override
+    protected Object extractJson(CallableStatement statement, int index) throws SQLException {
+        return statement.getString(index);
+    }
+
+    @Override
+    protected Object extractJson(CallableStatement statement, String name) throws SQLException {
+        return statement.getString(name);
+    }
 }

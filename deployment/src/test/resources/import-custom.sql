@@ -1,4 +1,4 @@
 INSERT INTO MyEntity(ID, PARAM)
-VALUES ('1', '1#test1');
+VALUES ('1', STRINGTOUTF8('1#test1'));
 INSERT INTO MyEntity(ID, PARAM)
-VALUES ('2', '2#test2');
+VALUES ('2', STRINGTOUTF8('2#test2'));

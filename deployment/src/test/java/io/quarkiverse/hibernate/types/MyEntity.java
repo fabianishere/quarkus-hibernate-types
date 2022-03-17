@@ -19,7 +19,7 @@ public class MyEntity {
     private String id;
 
     @Type(type = JsonTypes.JSON)
-    @Column(name = "PARAM", columnDefinition = "varchar(255)")
+    @Column(name = "PARAM", columnDefinition = "json")
     private MyParam param;
 
     public String getId() {

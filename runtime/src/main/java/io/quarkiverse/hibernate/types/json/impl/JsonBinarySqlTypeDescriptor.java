@@ -3,21 +3,15 @@ package io.quarkiverse.hibernate.types.json.impl;
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Types;
 
 import org.hibernate.type.descriptor.ValueBinder;
 import org.hibernate.type.descriptor.WrapperOptions;
 import org.hibernate.type.descriptor.java.JavaTypeDescriptor;
 import org.hibernate.type.descriptor.sql.BasicBinder;
 
-public class JsonBinarySqlTypeDescriptor extends JsonSqlTypeDescriptor {
+public class JsonBinarySqlTypeDescriptor extends AbstractJsonSqlTypeDescriptor {
 
     public static final JsonBinarySqlTypeDescriptor INSTANCE = new JsonBinarySqlTypeDescriptor();
-
-    @Override
-    public int getSqlType() {
-        return Types.OTHER;
-    }
 
     @Override
     public <X> ValueBinder<X> getBinder(final JavaTypeDescriptor<X> javaTypeDescriptor) {
